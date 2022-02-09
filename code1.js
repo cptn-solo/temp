@@ -8,28 +8,22 @@ function func(s, a, b) {
     var aIndex = -1;
     var bIndex = -1;
 
-    while ((aIndex == -1) && (bIndex == -1) && (i>0)) {
-        if (s.substring(i,i +1) == a) {
+    while ((aIndex == -1) && (bIndex == -1) && (i > 0)) {
+        let substr = s.substring(i, i + 1);
+            
+        if (substr == a) {
             aIndex = i;
         }
-        if (s.substring(i, i +1)==b) {
+        if (substr == b) {
             bIndex = i;
         }
-        i = i -1;
+        i--;
     }
-
-    if (aIndex != -1) {
-        if (bIndex == -1){
-            return aIndex;
-        }
-        else {
-            return Math.max(aIndex, bIndex);
-        }
-    }
-
-    if (bIndex != -1) {
-        return bIndex;
-    }else{
+    
+    if (aIndex != -1 && bIndex != -1) {
+        return Math.max(aIndex, bIndex);
+    } else if (aIndex == -1 && bIndex == -1) {
         return -1;
-    }
-}
+    }   
+    return aIndex != -1 ? aIndex : bIndex;
+ }

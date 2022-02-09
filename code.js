@@ -9,11 +9,12 @@ function func(s, a, b) {
     let bIndex = -1;
 
     while ((aIndex == -1) && (bIndex == -1) && (i>0)) {
-        if (s.substring(i,i + 1) == a && s.substring(i, i + 1)==b) {
+        let substr = s.substring(i,i + 1);
+        if (substr == a && substr == b) {
             aIndex = i;
             bIndex = i;
         }
-        i = i -1;
+        i--;
     }
 
     if (aIndex != -1) {
@@ -23,7 +24,7 @@ function func(s, a, b) {
         else if  (bIndex != -1) {
             return bIndex;
         }else{
-            return Math.max(aIndex, bIndex);;
+            return Math.max(aIndex, bIndex);
         }
     }
 }
